@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FinOps Dashboard — Financial Operations</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="sidebar-logo">
+        <div class="logo-mark">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+            <rect x="0" y="0" width="8" height="8" rx="2" fill="#6EE7B7"/>
+            <rect x="10" y="0" width="8" height="8" rx="2" fill="#6EE7B7" opacity=".5"/>
+            <rect x="0" y="10" width="8" height="8" rx="2" fill="#6EE7B7" opacity=".5"/>
+            <rect x="10" y="10" width="8" height="8" rx="2" fill="#6EE7B7" opacity=".3"/>
+          </svg>
+        </div>
+        <span class="logo-text">FinOps</span>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="nav-group">
+          <span class="nav-label">Overview</span>
+          <a href="#" class="nav-item active">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+            Dashboard
+          </a>
+          <a href="#" class="nav-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 3v18h18"/><path d="m7 16 4-4 4 4 4-5"/></svg>
+            Analytics
+          </a>
+          <a href="#" class="nav-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 6v6l4 2"/></svg>
+            Forecasting
+          </a>
+        </div>
+        <div class="nav-group">
+          <span class="nav-label">Spend</span>
+          <a href="#" class="nav-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+            Departments
+          </a>
+          <a href="#" class="nav-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            Travel
+          </a>
+          <a href="#" class="nav-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+            Payroll
+          </a>
+        </div>
+        <div class="nav-group">
+          <span class="nav-label">Reports</span>
+          <a href="#" class="nav-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            Export
+          </a>
+          <a href="#" class="nav-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
+            Benchmarks
+          </a>
+        </div>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="user-pill">
+          <div class="user-avatar">FT</div>
+          <div class="user-info">
+            <span class="user-name">Finance Team</span>
+            <span class="user-role">Admin · Q3 2026</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main">
+
+      <!-- TOP BAR -->
+      <header class="topbar">
+        <div class="topbar-left">
+          <h1 class="page-title">Financial Overview</h1>
+          <span class="page-period">April 2026 · Q3</span>
+        </div>
+        <div class="topbar-right">
+          <div class="period-switcher">
+            <button class="period-btn" data-period="Q1">Q1</button>
+            <button class="period-btn" data-period="Q2">Q2</button>
+            <button class="period-btn active" data-period="Q3">Q3</button>
+            <button class="period-btn" data-period="YTD">YTD</button>
+          </div>
+          <button class="export-btn">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Export
+          </button>
+        </div>
+      </header>
+
+      <!-- KPI ROW -->
+      <section class="kpi-row">
+        <div class="kpi-card" style="--delay:0ms">
+          <div class="kpi-icon kpi-icon--blue">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <div class="kpi-body">
+            <span class="kpi-label">Total Spend</span>
+            <span class="kpi-value" data-val="4820000">$4.82M</span>
+            <span class="kpi-delta kpi-delta--up">▲ 6.4% vs last period</span>
+          </div>
+          <div class="kpi-sparkline">
+            <canvas id="spark1" width="80" height="36"></canvas>
+          </div>
+        </div>
+        <div class="kpi-card" style="--delay:60ms">
+          <div class="kpi-icon kpi-icon--green">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          </div>
+          <div class="kpi-body">
+            <span class="kpi-label">Budget Remaining</span>
+            <span class="kpi-value">$1.18M</span>
+            <span class="kpi-delta kpi-delta--neutral">of $6.0M allocated</span>
+          </div>
+          <div class="kpi-sparkline">
+            <canvas id="spark2" width="80" height="36"></canvas>
+          </div>
+        </div>
+        <div class="kpi-card" style="--delay:120ms">
+          <div class="kpi-icon kpi-icon--amber">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.8 19.2L16 11l3.5-3.5C21 6 21 4 19 2c-2-2-4-2-5.5-.5L10 5 1.8 6.2c-.5.1-.9.5-.7 1.1l2.6 5.3c.2.3.4.6.8.7l6 2 1.6 6c.1.4.5.7 1.1.7.4-.1.7-.4.6-1.2l-1.1-5.6 3.5 3.5c.4.4 1 .4 1.4 0 .4-.4.4-1 0-1.4z"/></svg>
+          </div>
+          <div class="kpi-body">
+            <span class="kpi-label">Travel Expenses</span>
+            <span class="kpi-value">$632K</span>
+            <span class="kpi-delta kpi-delta--up">▲ 18.2% over target</span>
+          </div>
+          <div class="kpi-sparkline">
+            <canvas id="spark3" width="80" height="36"></canvas>
+          </div>
+        </div>
+        <div class="kpi-card" style="--delay:180ms">
+          <div class="kpi-icon kpi-icon--teal">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <div class="kpi-body">
+            <span class="kpi-label">Payroll Costs</span>
+            <span class="kpi-value">$2.94M</span>
+            <span class="kpi-delta kpi-delta--down">▼ 1.1% on track</span>
+          </div>
+          <div class="kpi-sparkline">
+            <canvas id="spark4" width="80" height="36"></canvas>
+          </div>
+        </div>
+      </section>
+
+      <!-- CHARTS ROW -->
+      <section class="charts-row">
+        <div class="chart-card chart-card--wide">
+          <div class="chart-header">
+            <div>
+              <h2 class="chart-title">Monthly Spend vs Budget</h2>
+              <p class="chart-sub">Actuals · Target · 8-month forecast</p>
+            </div>
+            <div class="chart-legend">
+              <span class="legend-item"><span class="legend-swatch" style="background:#0F7A5A"></span>Actual</span>
+              <span class="legend-item"><span class="legend-swatch legend-swatch--dashed" style="border-color:#1A56A8"></span>Target</span>
+              <span class="legend-item"><span class="legend-swatch" style="background:#92620A;opacity:.6"></span>Forecast</span>
+            </div>
+          </div>
+          <div class="chart-wrap" style="height:240px">
+            <canvas id="spendChart" role="img" aria-label="Monthly company spend vs budget, January through December 2026. Actuals shown Jan–Apr, forecast May–Dec.">Monthly spending: Jan $410K, Feb $398K, Mar $445K, Apr $487K, with forecast increasing through year-end.</canvas>
+          </div>
+        </div>
+
+        <div class="chart-card">
+          <div class="chart-header">
+            <div>
+              <h2 class="chart-title">Expense Breakdown</h2>
+              <p class="chart-sub">By category · $4.82M</p>
+            </div>
+          </div>
+          <div class="chart-wrap" style="height:170px">
+            <canvas id="donutChart" role="img" aria-label="Expense breakdown donut chart: Payroll 61%, Operations 17%, Travel 13%, Tech 9%.">Payroll 61%, Operations 17%, Travel 13%, Tech and Software 9%.</canvas>
+          </div>
+          <div class="donut-legend">
+            <div class="donut-leg-item"><span style="background:#0F7A5A"></span><span class="dl-label">Payroll</span><span class="dl-val">$2.94M</span></div>
+            <div class="donut-leg-item"><span style="background:#1A56A8"></span><span class="dl-label">Operations</span><span class="dl-val">$820K</span></div>
+            <div class="donut-leg-item"><span style="background:#92620A"></span><span class="dl-label">Travel</span><span class="dl-val">$632K</span></div>
+            <div class="donut-leg-item"><span style="background:#A3245A"></span><span class="dl-label">Tech & Software</span><span class="dl-val">$428K</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- BOTTOM ROW -->
+      <section class="bottom-row">
+
+        <!-- DEPARTMENT TABLE -->
+        <div class="data-card">
+          <div class="chart-header">
+            <div>
+              <h2 class="chart-title">Departmental Budget Tracker</h2>
+              <p class="chart-sub">Real-time utilization · Q3 2026</p>
+            </div>
+            <button class="ghost-btn">View all</button>
+          </div>
+          <table class="dept-table">
+            <thead>
+              <tr>
+                <th>Department</th>
+                <th>Spent</th>
+                <th>Budget</th>
+                <th>Usage</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="deptBody"></tbody>
+          </table>
+        </div>
+
+        <!-- RIGHT COLUMN -->
+        <div class="right-col">
+
+          <!-- TRAVEL BREAKDOWN -->
+          <div class="data-card">
+            <div class="chart-header">
+              <div>
+                <h2 class="chart-title">Top Travel Spend</h2>
+                <p class="chart-sub">This quarter · $632K total</p>
+              </div>
+            </div>
+            <div class="travel-list" id="travelList"></div>
+          </div>
+
+          <!-- ALERTS -->
+          <div class="data-card">
+            <div class="chart-header">
+              <div>
+                <h2 class="chart-title">Budget Alerts</h2>
+                <p class="chart-sub">3 items need attention</p>
+              </div>
+              <span class="alert-badge">3</span>
+            </div>
+            <div class="alerts-list" id="alertsList"></div>
+          </div>
+        </div>
+
+      </section>
+    </main>
+  </div>
+
+  <script src="dashboard.js"></script>
+</body>
+</html>
